@@ -1,0 +1,12 @@
+{
+    "pyright.enable": true,
+    "pyright.inlayHints.variableTypes": true,
+    "pyright.inlayHints.parameterTypes": true,
+    "pyright.inlayHints.functionReturnTypes": true,
+    "pyright.trace.server": "verbose",
+    "python.venvPath": "C:/Users/chris/.virtualenvs",
+    "python.formatting.provider": "black",
+    "rust-analyzer.procMacro.enable": true,
+    "suggest.noselect": true,
+    "pydocstring.enable": true
+}
