@@ -4,7 +4,7 @@ return {
     keys = {
         {
             '<M-F>',
-            function ()
+            function()
                 require('conform').format { async = true, lsp_fallback = true }
             end,
             mode = '',
@@ -49,7 +49,7 @@ return {
                 require("conform").format({ bufnr = args.buf })
             end,
         })
-        
+
         -- Format command
         vim.api.nvim_create_user_command("Format", function(args)
             local range = nil
@@ -71,6 +71,7 @@ return {
             else
                 vim.g.disable_autoformat = true
             end
+            vim.print("Formatting disabled.")
         end, {
             desc = "Disable autoformat-on-save",
             bang = true,
@@ -80,6 +81,7 @@ return {
         vim.api.nvim_create_user_command("FormatEnable", function()
             vim.b.disable_autoformat = false
             vim.g.disable_autoformat = false
+            vim.print("Formatting enabled.")
         end, {
             desc = "Re-enable autoformat-on-save",
         })

@@ -7,11 +7,59 @@ return {
         'WhoIsSethDaniel/mason-tool-installer.nvim',
 
         -- Useful status updates for LSP.
-        { 'j-hui/fidget.nvim', opts = {} },
+        { 'j-hui/fidget.nvim',       opts = {} },
 
         -- `neodev` configures Lua LSP for your Neovim config, runtime, and plugins.
         -- Used for completion, annotations, and signatures of Neovim APIs.
-        { 'folke/neodev.nvim', opts = {} },
+        { 'folke/neodev.nvim',       opts = {} },
+
+        -- rustaceanvim
+        {
+            'mrcjkb/rustaceanvim',
+            version = '^4', -- Recommended to avoid breaking changes.
+            lazy = false,   -- The plugin is already lazy.
+            -- config = function()
+            --     vim.g.rustaceanvim = {
+            --         server = {
+            --             cmd = function()
+            --                 local mason_registry = require('mason-registry')
+            --                 local ra_binary = mason_registry.is_installed('rust-analyzer')
+            --                     -- This may need to be tweeked, depending on the operating system.
+            --                     and mason_registry.get_package('rust-analyzer'):get_install_path() .. "/rust-analyzer"
+            --                     or "rust-analyzer"
+            --                 return { ra_binary } -- You can add args to the list, such as `--log-file`.
+            --             end,
+            --         },
+            --     }
+            -- end,
+        },
+
+        -- lsp_signature
+        {
+            'ray-x/lsp_signature.nvim',
+            event = 'VeryLazy',
+            opts = {
+                bind = true,
+                handler_opts = {
+                    border = 'rounded'
+                }
+            },
+            config = function(_, opts)
+                require('lsp_signature').setup(opts)
+                vim.api.nvim_create_autocmd("LspAttach", {
+                    callback = function(args)
+                        local bufnr = args.buf
+                        local client = vim.lsp.get_client_by_id(args.data.client_id)
+                        if client ~= nil then
+                            if vim.tbl_contains({ 'null-ls' }, client.name) then -- blacklist lsp
+                                return
+                            end
+                        end
+                        require('lsp_signature').on_attach(opts, bufnr)
+                    end
+                })
+            end
+        }
     },
     config = function()
         vim.api.nvim_create_autocmd('LspAttach', {
@@ -89,7 +137,7 @@ return {
                         end,
                     })
                 end
-                
+
                 -- The following autocommand is used to enable inlay hints in your code, if the
                 -- language server you are using supports them.
                 --
@@ -125,9 +173,14 @@ return {
         --          https://luals.github.io/wiki/settings/
         local servers = {
             clangd = {},
-            --gopls = {},
-            pyright = {},
-            rust_analyzer = {},
+            -- gopls = {},
+            pyright = {
+                enabled = false
+            },
+            basedpyright = {
+                root_dir = require('lspconfig.util').find_git_ancestor
+            },
+            -- rust_analyzer = {},
             lua_ls = {
                 -- cmd = {...},
                 -- filetypes = {...},
