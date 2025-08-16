@@ -1,0 +1,276 @@
+{
+  "$schema": "https://raw.githubusercontent.com/LGUG2Z/komorebi/v0.1.37/schema.json",
+  "app_specific_configuration_path": "$Env:USERPROFILE/applications.json",
+  "window_hiding_behaviour": "Cloak",
+  "cross_monitor_move_behaviour": "Insert",
+  "default_workspace_padding": 5,
+  "default_container_padding": 5,
+  "border": true,
+  "border_width": 4,
+  "border_offset": -1,
+  "theme": {
+    "palette": "Base16",
+    "name": "Dracula",
+    "unfocused_border": "Base01",
+    "bar_accent": "Base0E"
+  },
+  "display_index_preferences" : {
+    "0": "MONITOR_0_ID",
+    "1": "MONITOR_1_ID",
+    "2": "MONITOR_2_ID",
+    "3": "MONITOR_3_ID"
+  },
+  "bar_configurations": [
+    "$Env:KOMOREBI_CONFIG_HOME/komorebi.bar.json"
+  ],
+  "ignore_rules": [
+    {
+      "kind": "Exe",
+      "id": "tgm4.exe",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Exe",
+      "id": "mame.exe",
+      "matching_strategy": "Equals"
+    },
+    [
+      {
+        "kind": "Exe",
+        "id": "mpv.exe",
+        "matching_strategy": "Equals"
+      },
+      {
+        "kind": "Class",
+        "id": "mpv",
+        "matching_strategy": "Equals"
+      }
+    ],
+    {
+      "kind": "Exe",
+      "id": "SVPManager.exe",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Exe",
+      "id": "Bitwarden.exe",
+      "matching_strategy": "Equals"
+    },
+    {
+      "kind": "Exe",
+      "id": "love.exe",
+      "matching_strategy": "Equals"
+    },
+    [
+      {
+        "kind": "Exe",
+        "id": "Chatty.exe",
+        "matching_strategy": "Equals"
+      },
+      {
+        "kind": "Class",
+        "id": "SunAwtFrame",
+        "matching_strategy": "Equals"
+      },
+      {
+        "kind": "Title",
+        "id": "About/Help",
+        "matching_strategy": "Contains"
+      }
+    ],
+    [
+      {
+        "kind": "Exe",
+        "id": "ArgusMonitor.exe",
+        "matching_strategy": "Equals"
+      },
+      {
+        "kind": "Class",
+        "id": "TGraphWindowSetupForm",
+        "matching_strategy": "Equals"
+      }
+    ]
+  ],
+  "manage_rules": [
+    [
+      {
+        "kind": "Exe",
+        "id": "Chatty.exe",
+        "matching_strategy": "Equals"
+      },
+      {
+        "kind": "Class",
+        "id": "SunAwtFrame",
+        "matching_strategy": "Equals"
+      }
+    ],
+    [
+      {
+        "kind": "Exe",
+        "id": "Multiviewer for F1.exe",
+        "matching_strategy": "Equals"
+      },
+      {
+        "kind": "Title",
+        "id": "Live Timing",
+        "matching_strategy": "Contains"
+      },
+      {
+        "kind": "Title",
+        "id": "Track Map",
+        "matching_strategy": "Contains"
+      },
+      {
+        "kind": "Title",
+        "id": "Race Trace",
+        "matching_strategy": "Contains"
+      }
+    ]
+  ],
+  "object_name_change_applications": [
+    {
+      "kind": "Exe",
+      "id": "javaw.exe",
+      "matching_strategy": "Equals"
+    },
+    {
+      "id": "Chatty.exe",
+      "kind": "Exe",
+      "matching_strategy": "Equals"
+    },
+    {
+      "id": "Multiviewer for F1.exe",
+      "kind": "Exe",
+      "matching_strategy": "Equals"
+    }
+  ],
+  "stackbar": {
+    "height": 40,
+    "mode": "OnStack",
+    "tabs": {
+      "width": 300,
+      "focused_text": "#00a542",
+      "unfocused_text": "#b3b3b3",
+      "background": "#141414"
+    }
+  },
+  "slow_application_identifiers": [
+    {
+      "kind": "Exe",
+      "id": "WhatsApp.exe",
+      "matching_strategy": "Equals"
+    }
+  ],
+  "monitors": [
+    {
+      "workspaces": [
+        {
+          "name": "I",
+          "layout": "BSP"
+        },
+        {
+          "name": "II",
+          "layout": "BSP"
+        },
+        {
+          "name": "III",
+          "layout": "BSP"
+        },
+        {
+          "name": "IV",
+          "layout": "BSP"
+        },
+        {
+          "name": "V",
+          "layout": "BSP"
+        }
+      ]
+    },
+    {
+      "workspaces": [
+        {
+          "name": "I",
+          "layout": "BSP",
+          "work_area_offset": {
+            "bottom": 0,
+            "left": 0,
+            "right": 0,
+            "top": 60
+          }
+        },
+        {
+          "name": "II",
+          "layout": "BSP",
+          "work_area_offset": {
+            "bottom": 0,
+            "left": 0,
+            "right": 0,
+            "top": 60
+          }
+        },
+        {
+          "name": "III",
+          "layout": "BSP",
+          "work_area_offset": {
+            "bottom": 0,
+            "left": 0,
+            "right": 0,
+            "top": 60
+          }
+        },
+        {
+          "name": "IV",
+          "layout": "BSP",
+          "work_area_offset": {
+            "bottom": 0,
+            "left": 0,
+            "right": 0,
+            "top": 60
+          }
+        },
+        {
+          "name": "V",
+          "layout": "BSP",
+          "work_area_offset": {
+            "bottom": 0,
+            "left": 0,
+            "right": 0,
+            "top": 60
+          }
+        }
+      ]
+    },
+    {
+      "workspaces": [
+        {
+          "name": "I",
+          "layout": "Rows"
+        },
+        {
+          "name": "II",
+          "layout": "Rows"
+        },
+        {
+          "name": "III",
+          "layout": "Rows"
+        }
+      ]
+    },
+    {
+      "workspaces": [
+        {
+          "name": "I",
+          "layout": "BSP"
+        },
+        {
+          "name": "II",
+          "layout": "BSP"
+        },
+        {
+          "name": "III",
+          "layout": "BSP"
+        }
+      ]
+    }
+  ]
+}
